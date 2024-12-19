@@ -19,15 +19,21 @@ export default function Language() {
     }
 
     const validateFile = (file) => {
-        if (!file) return;
+        if (!file) return false;
         
         if (!ALLOWED_FILE_TYPES.includes(file.type)) {
-          throw new Error('Please upload a PDF file');
+          alert('Please upload a PDF file');
+          setFile(null);
+          return false
         }
         
         if (file.size > MAX_FILE_SIZE) {
-          throw new Error('File size must be less than 2MB');
+          alert('File size must be less than 2MB');
+          setFile(null);
+          return false
         }
+
+        return true
       };
 
     const handleTextChange = (e) => {
@@ -39,10 +45,11 @@ export default function Language() {
           const newFile = e.target.files[0];
           if (!newFile) return;
           
-          validateFile(newFile);
-          setFile(newFile);
-          setText("");
-          setError("");
+          if (validateFile(newFile)) {
+            setFile(newFile);
+            setText("");
+            setError("");
+          };
         } catch (err) {
           setError(err.message);
           e.target.value = '';

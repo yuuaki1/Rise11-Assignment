@@ -1,6 +1,14 @@
+'use client'
+
 import Image from "next/image";
+import { useState } from "react";
 
 export default function Location() {
+    const [choicea, setChoicea] = useState("Yes")
+
+    const handleChoice = (e) => {
+        setChoicea(e.target.value)
+    }
     return (
         <div>
             <div className="flex flex-row gap-x-3 items-center py-4">
@@ -17,12 +25,26 @@ export default function Location() {
                 <h1 className="text-neutral-600 whitespace-normal text-basline mt-4 truncate w-72 leading-tight">Is the place for the proceedings the one mentioned in the agreement?</h1>
                 <div className="flex items-center space-x-5 mt-4">
                     <label className="inline-flex items-center cursor-pointer">
-                        <input type="radio" name="choice" className="peer" />
+                        <input 
+                        type="radio" 
+                        name="Yes" 
+                        className="peer"
+                        value={"Yes"}
+                        checked = {choicea === "Yes"}
+                        onChange={handleChoice}
+                         />
                         <span className="ml-2">Yes</span>
                     </label>
 
                     <label className="inline-flex items-center cursor-pointer">
-                        <input type="radio" name="choice" className="peer" />
+                        <input 
+                        type="radio" 
+                        name="No" 
+                        className="peer"
+                        value={"No"}
+                        checked = {choicea === "No"}
+                        onChange={handleChoice} 
+                        />
                         <span className="ml-2">No</span>
                     </label>
                 </div>
