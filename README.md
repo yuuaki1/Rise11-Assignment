@@ -28,6 +28,7 @@ The challenges I faced would be handling CSS across devices, as well as adding c
 ![image](https://github.com/user-attachments/assets/a22b0eb8-9d68-42c7-a0f2-a94b6d80c822)
 
 - For Mobile
+
 ![image](https://github.com/user-attachments/assets/cf9cbf63-a4e9-4d82-9488-4b4fbc67ba73)
 
 
